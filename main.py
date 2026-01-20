@@ -19,3 +19,5 @@ symbols = [
 
 standard_password_length = 16
 current_password_lenght = 0
+
+password = []
