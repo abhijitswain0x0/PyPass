@@ -34,6 +34,6 @@ while standard_password_length > current_password_lenght:
     elif append_array == 4: 
         password.append(symbols[0])
 
-    cpl += 1 
+    current_password_lenght += 1
 
 print(password)
