@@ -16,33 +16,6 @@ symbols = [
     "-"
     ]
 
-print(
-    characters_uppercase[random.randrange(0, 26)] +
-    characters_lowercase[random.randrange(0, 26)] +
-    numbers[random.randrange(0, 9)] +
-    symbols[0] +
-    characters_uppercase[random.randrange(0, 26)] +
-    characters_lowercase[random.randrange(0, 26)] +
-    numbers[random.randrange(0, 9)] +
-    symbols[0] +
-    characters_uppercase[random.randrange(0, 26)] +
-    characters_lowercase[random.randrange(0, 26)] +
-    numbers[random.randrange(0, 9)] +
-    symbols[0] +
-    characters_uppercase[random.randrange(0, 26)] +
-    characters_lowercase[random.randrange(0, 26)] +
-    numbers[random.randrange(0, 9)] +
-    symbols[0] +
-    characters_uppercase[random.randrange(0, 26)] +
-    characters_lowercase[random.randrange(0, 26)] +
-    numbers[random.randrange(0, 9)] +
-    symbols[0] +
-    characters_uppercase[random.randrange(0, 26)] +
-    characters_lowercase[random.randrange(0, 26)] +
-    numbers[random.randrange(0, 9)] +
-    symbols[0] +
-    characters_uppercase[random.randrange(0, 26)] +
-    characters_lowercase[random.randrange(0, 26)] +
-    numbers[random.randrange(0, 9)] +
-    characters_lowercase[random.randrange(0, 26)] 
-    )
+
+standard_password_length = 16
+current_password_lenght = 0
