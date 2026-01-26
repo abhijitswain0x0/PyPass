@@ -1,49 +1,46 @@
 import random
-import charecter_map
+import character_map
 
-standard_password_length = 16
-current_password_lenght = 0
-password = []
-
-def create_password(standard_password_length = standard_password_length, current_password_lenght = current_password_lenght):
-    while standard_password_length > current_password_lenght:
-        append_array = random.randrange(0, 5)
-
-        if append_array == 1:
-            password.append(charecter_map.characters_uppercase[random.randrange(0, 26)])
-        elif append_array == 2: 
-            password.append(charecter_map.characters_lowercase[random.randrange(0, 26)])
-        elif append_array == 3: 
-            password.append(charecter_map.numbers[random.randrange(0, 9)])
-        elif append_array == 4: 
-            password.append(charecter_map.symbols[0])
-
-        current_password_lenght += 1
-
-
-def main() :
-    print("Password Genrator")
+def generate_password(length=16):
+    """Generates a random password of a given length."""
+    password_chars = []
     
-    choice = input("Genrate Password [Y/N]: ")
+    # Ensure at least one of each type is included for strong passwords (optional but good practice)
+    # For now, we will stick to the user's logic of random selection per character slot
+    
+    for _ in range(length):
+        # 0: Uppercase, 1: Lowercase, 2: Numbers, 3: Symbols
+        # We use random.choice for cleaner selection from lists
+        
+        choice_type = random.randrange(0, 4)
+        
+        if choice_type == 0:
+            password_chars.append(random.choice(character_map.characters_uppercase))
+        elif choice_type == 1: 
+            password_chars.append(random.choice(character_map.characters_lowercase))
+        elif choice_type == 2: 
+            password_chars.append(random.choice(character_map.numbers))
+        elif choice_type == 3: 
+            password_chars.append(random.choice(character_map.symbols))
+            
+    return "".join(password_chars)
 
-    avalaible_inputs = ["y", "Y", "Yes", "YES", "yes"]
+def main():
+    while True:
+        try:
+            user_input = input("Generate Password? (Y/N): ").strip().lower()
+            
+            if user_input in ['y', 'yes']:
+                password = generate_password()
+                print(f"Generated Password: {password}")
+            elif user_input in ['n', 'no']:
+                print("Exiting...")
+                break
+            else:
+                print("Invalid input. Please enter Y or N.")
+        except KeyboardInterrupt:
+            print("\nExiting...")
+            break
 
-    if choice == avalaible_inputs[0]:
-        create_password()
-        return(password)
-    elif choice == avalaible_inputs[1]:
-        create_password()
-        return(password)
-    elif choice == avalaible_inputs[2]:
-        create_password()
-        return(password)
-    elif choice == avalaible_inputs[3]:
-        create_password()
-        return(password)
-    elif choice == avalaible_inputs[4]:
-        create_password()
-        return(password)
-    else:
-        return("The program has been terminated by user")
-
-print(main())
+if __name__ == "__main__":
+    main()
