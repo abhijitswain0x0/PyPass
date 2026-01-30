@@ -1,17 +1,31 @@
-import random
-import character_map
+import random # imports the standard random library
+import character_map # imports all the arrays of charecters from the charecter_map.py file
+
+
+# How this works:
+# genrate_password fuction genrates a password of a given length (defalt = 16 charecters)
+#   it works by creating a array named password_chars
+#   then does a for loop for in range of lenght (default = 16)
+#   creates a choice_type variable that randomly chooses a number between 0 to 4
+#   The numbers correspond to arrays of charecters: 1: Uppercase Letters, 2: Lowercase Letters, 3: Numbers and 4: Symbols
+#   it then loops over it as many times the lenght is
+#   upon loop end it then return a string by joining all the chars stored in the password variable
+
+
+# main function takes user input if they want to genrate a password
+#   for error protection it uses a try-except block:
+#       in the try block it:
+#           if 'y' or 'yes' then it calls the generate_password function and prints the password 
+#           if 'n' or 'no' then it prints "exiting" and then breaks
+#           else it prints "Invalid input. Please enter Y or N."
+#       in the except block:
+#           if user terminates the program forcefully (KeyboardInterrupt) it prints exiting and breaks
+
 
 def generate_password(length=16):
-    """Generates a random password of a given length."""
     password_chars = []
-    
-    # Ensure at least one of each type is included for strong passwords (optional but good practice)
-    # For now, we will stick to the user's logic of random selection per character slot
-    
+
     for _ in range(length):
-        # 0: Uppercase, 1: Lowercase, 2: Numbers, 3: Symbols
-        # We use random.choice for cleaner selection from lists
-        
         choice_type = random.randrange(0, 4)
         
         if choice_type == 0:
