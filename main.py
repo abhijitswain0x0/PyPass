@@ -5,7 +5,7 @@ import character_map # imports all the arrays of charecters from the charecter_m
 # How this works:
 # genrate_password fuction genrates a password of a given length (defalt = 16 charecters)
 #   it works by creating a array named password_chars
-#   then does a for loop for in range of lenght (default = 16)
+#   then does a for loop for in range of lenght (default = 16 or given by the user)
 #   creates a choice_type variable that randomly chooses a number between 0 to 4
 #   The numbers correspond to arrays of charecters: 1: Uppercase Letters, 2: Lowercase Letters, 3: Numbers and 4: Symbols
 #   it then loops over it as many times the lenght is
@@ -18,6 +18,11 @@ import character_map # imports all the arrays of charecters from the charecter_m
 #           if 'y' or 'yes' then it calls the generate_password function and prints the password 
 #           if 'n' or 'no' then it prints "exiting" and then breaks
 #           else it prints "Invalid input. Please enter Y or N."
+#           then it asks for the lenght of the password to the user and uses a try except block for error protection:
+#               if user gives a number:
+#                   calls the generate_password function and gives the number as a integer to it as a argument
+#               in the except block:
+#                   if user gives a ValueError or doesnt submit a number then it calls the generate_password function normally and prints it
 #       in the except block:
 #           if user terminates the program forcefully (KeyboardInterrupt) it prints exiting and breaks
 
