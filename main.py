@@ -40,16 +40,32 @@ def generate_password(length=16):
     return "".join(password_chars)
 
 def main():
+    print("PyPass")
+    
     while True:
         try:
             user_input = input("Generate Password? (Y/N): ").strip().lower()
             
             if user_input in ['y', 'yes']:
-                password = generate_password()
-                print(f"Generated Password: {password}")
+               
+                try:
+
+                    lenght_of_password = input("Enter password length [Desfault = 16]: ")
+
+                    password = generate_password(length = int(lenght_of_password))
+
+                    print(f'Generated Password: {password}')
+                
+                except ValueError:
+
+                    password = generate_password()
+
+                    print(f'Generated Password: {password}')
+                    
             elif user_input in ['n', 'no']:
                 print("Exiting...")
                 break
+
             else:
                 print("Invalid input. Please enter Y or N.")
         except KeyboardInterrupt:
