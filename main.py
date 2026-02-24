@@ -1,3 +1,4 @@
+import authentification
 import generate_password
 
 
@@ -28,8 +29,19 @@ import generate_password
 
 def init():
     print("PyPass")
-    generate_password.get_generated_password()    
     
+    verification_state = False
+
+    while not verification_state:
+       
+        if authentification.auth():
+            verification_state = True
+            break
+
+        else:
+            verification_state = False
+    
+    generate_password.get_generated_password()
 
 if __name__ == "__main__":
     init()
