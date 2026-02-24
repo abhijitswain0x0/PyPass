@@ -78,11 +78,4 @@ def main():
             break
 
 if __name__ == "__main__":
-
-    if authentifictaion.enable():
-        print("Authentifictaion has been succesfull!")
-
-        main()
-
-    elif not authentifictaion.enable():
-        print("Wrong Password")
+    main()
