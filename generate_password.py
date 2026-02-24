@@ -43,11 +43,11 @@ def get_generated_password():
                     
                 elif user_input in ['n', 'no']:
                     print("Exiting...")
-                    break
+                    exit()
 
                 else:
                     print("Invalid input. Please enter Y or N.")
             except KeyboardInterrupt:
                 print("\nExiting...")
-                break
+                exit()
    
