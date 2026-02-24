@@ -1,6 +1,6 @@
 import random # imports the standard random library
 import character_map # imports all the arrays of charecters from the charecter_map.py file
-import authentifictaion
+
 
 # How this works:
 # genrate_password fuction genrates a password of a given length (defalt = 16 charecters)
