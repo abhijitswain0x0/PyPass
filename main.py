@@ -1,47 +1,22 @@
 import authentification
-import generate_password
-
-
-# How this works:
-# genrate_password fuction genrates a password of a given length (defalt = 16 charecters)
-#   it works by creating a array named password_chars
-#   then does a for loop for in range of lenght (default = 16 or given by the user)
-#   creates a choice_type variable that randomly chooses a number between 0 to 4
-#   The numbers correspond to arrays of charecters: 1: Uppercase Letters, 2: Lowercase Letters, 3: Numbers and 4: Symbols
-#   it then loops over it as many times the lenght is
-#   upon loop end it then return a string by joining all the chars stored in the password variable
-
-
-# main function takes user input if they want to genrate a password
-#   for error protection it uses a try-except block:
-#       in the try block it:
-#           if 'y' or 'yes' then it calls the generate_password function and prints the password 
-#           if 'n' or 'no' then it prints "exiting" and then breaks
-#           else it prints "Invalid input. Please enter Y or N."
-#           then it asks for the lenght of the password to the user and uses a try except block for error protection:
-#               if user gives a number:
-#                   calls the generate_password function and gives the number as a integer to it as a argument
-#               in the except block:
-#                   if user gives a ValueError or doesnt submit a number then it calls the generate_password function normally and prints it
-#       in the except block:
-#           if user terminates the program forcefully (KeyboardInterrupt) it prints exiting and breaks
+import password_utils
 
 
 def init():
     print("PyPass")
-    
+
     verification_state = False
 
     while not verification_state:
-       
         if authentification.auth():
             verification_state = True
             break
 
         else:
             verification_state = False
-    
-    generate_password.get_generated_password()
+
+    password_utils.get_generated_password()
+
 
 if __name__ == "__main__":
     init()
