@@ -17,8 +17,8 @@ To get started with this project locally or contribute to it, you can follow the
 
 1. **Clone the Repository:**
    ```shell
-   git clone https://github.com/IAmTomShaw/f1-race-replay
-    cd f1-race-replay
+   git clone https://github.com/abhijitswain0x0/Pypass.git
+   cd PyPass
     ```
 
 2. **Run the Application:**
