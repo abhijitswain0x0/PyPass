@@ -9,8 +9,8 @@ def init():  # function to initialize/starts the app
 
     verification_state = False  # stores current state of verification
 
-    while not verification_state:
-        verification_state = authentification.auth()
+    while not verification_state:  # loops indefinetly until verification state == true
+        verification_state = authentification.auth()  # calls the authentification.auth() function and stores its return value in the verfication_state variable
 
     password_utils.get_generated_password()  # calls the get_generated_password function funtion from password_utils
 
