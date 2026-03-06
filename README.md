@@ -4,7 +4,7 @@ A Python application for generating, storing and managing passwords.
 
 ## Features:
 
-- **Password generation with custom lenghts:** Generate passwords of desired lenghts form 1 charecters to infinity.
+- **Password generation with custom lenghts:** Generate passwords of desired lenghts form 1 charecter to infinity.
 - **Secured authentification through sudo/master password:** Program can only be accesed entering a maste/sudo password
 
 ## Requirments
