@@ -1,4 +1,4 @@
-def auth():
+def authentificate_user():
     master_password = "master_password"  # stores the master passwords
 
     # try except block for error handling
