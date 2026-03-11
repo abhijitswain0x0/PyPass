@@ -19,7 +19,9 @@ def auth():
 
             return False
 
-    except KeyboardInterrupt:  # listens for keyboard interrupt and handles it correctly by calling python's in-built exit() function
+    except (
+        KeyboardInterrupt
+    ):  # listens for keyboard interrupt and handles it correctly by calling python's in-built exit() function
         print("\nExiting...")
 
         exit()
