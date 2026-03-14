@@ -1,13 +1,11 @@
-from pathlib import Path
 import json
+from pathlib import Path
 
 
 def authentificate_user():
-
     user_exists = if_user_exists()
 
     if user_exists:
-
         path = Path("passwords/master_password.json")
         data = json.loads(path.read_text())
 
@@ -31,9 +29,7 @@ def authentificate_user():
 
                 return False
 
-        except (
-            KeyboardInterrupt
-        ):  # listens for keyboard interrupt and handles it correctly by calling python's in-built exit() function
+        except KeyboardInterrupt:  # listens for keyboard interrupt and handles it correctly by calling python's in-built exit() function
             print("\nExiting...")
 
             exit()
