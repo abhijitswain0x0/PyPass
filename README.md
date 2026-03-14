@@ -37,7 +37,7 @@ Pypass/
 ├── authentification.py        # Authentificates user with a master passwors
 ├── character_map.py           # Stores all the charecters for password generation
 ├── main.py                    # Starts the Program 
-├── password_utils.py
+├── password_utils.py          # generates passwords
 ├── README.md                  # Project documentation
 ```
 
