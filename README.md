@@ -1,28 +1,24 @@
 # PyPass
 
-A Python application for generating, storing and managing passwords.
+A Python CLI application for generating and managing secure passwords with master password authentication.
 
-## Features:
+## Features
 
-- **Password generation with custom lenghts:** Generate passwords of desired lenghts form 1 charecter to infinity.
-- **Secured authentification through sudo/master password:** Program can only be accesed entering a maste/sudo password
+- **Custom-length password generation**: Generate passwords from 1 to any length (default: 16 characters)
+- **Mixed character sets**: Passwords include uppercase, lowercase, numbers, and symbols
+- **Master password protection**: Access is protected by a master/sudo password
+- **Persistent storage**: Generated passwords are saved locally as JSON
 
-## Requirments
+## Requirements
 
 - Python 3.11+
 
-## Environment Setup
+## Installation
 
-To get started with this project locally or contribute to it, you can follow these steps:
-
-1. **Clone the Repository:**
-   ```shell
-   git clone https://github.com/abhijitswain0x0/Pypass.git
-   cd PyPass
-    ```
-
-2. **Run the Application:**
-    You can now run the application using the instructions in the Usage section below.
+```shell
+git clone https://github.com/abhijitswain0x0/PyPass.git
+cd PyPass
+```
 
 ## Usage
 
@@ -30,21 +26,30 @@ To get started with this project locally or contribute to it, you can follow the
 python main.py
 ```
 
-## File structure
+On first run, you'll be prompted to create a master password. Subsequent runs require the master password to proceed.
+
+## Project Structure
 
 ```
-Pypass/
-├── authentification.py        # Authentificates user with a master passwors
-├── character_map.py           # Stores all the charecters for password generation
-├── main.py                    # Starts the Program 
-├── password_utils.py          # generates passwords
-├── README.md                  # Project documentation
+PyPass/
+├── main.py                # Application entry point
+├── authentification.py    # Master password authentication
+├── password_utils.py      # Password generation and storage
+├── character_map.py      # Character sets for password generation
+├── README.md             # Project documentation
+└── LICENSE               # MIT License
 ```
 
-## 📝 License
+## How It Works
 
-This project is licensed under the MIT License.
+1. **Authentication**: On startup, the app checks for a master password file. If none exists, it prompts you to create one. Otherwise, it verifies your input.
+2. **Password Generation**: After authentication, you can generate a password of any length (default 16). Characters are randomly selected from:
+   - Uppercase letters (A-Z)
+   - Lowercase letters (a-z)
+   - Numbers (0-9)
+   - Symbols (!, @, #, $, %, ^, &, *, (, ), -, _, =, +)
+3. **Storage**: Username-password pairs are stored in `Passwords/passwords.json`.
 
----
+## License
 
-Built with ♥️  by [Abhijit Swain](https://github.com/abhijitswain0x0)
+MIT License

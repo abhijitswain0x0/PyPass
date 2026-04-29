@@ -8,7 +8,7 @@ import character_map
 def get_username():
     """
     Prompts the user to enter a username to pair with a generated password.
-    
+
     Returns:
         str: The username entered by the user.
     """
@@ -19,13 +19,13 @@ def get_username():
 def generate_password(length=16):
     """
     Generates a random password of specified length using a mix of character types.
-    
+
     The password is constructed by randomly selecting characters from four categories:
     uppercase letters, lowercase letters, numbers, and symbols.
-    
+
     Args:
         length (int): Desired password length. Defaults to 16.
-    
+
     Returns:
         str: The generated password string.
     """
@@ -49,10 +49,10 @@ def generate_password(length=16):
 def get_generated_password():
     """
     Prompts the user to confirm password generation and optionally specify length.
-    
+
     If confirmed, generates a password with user-specified length or default.
     Handles invalid input gracefully by falling back to default length.
-    
+
     Returns:
         str: The generated password.
     """
@@ -62,8 +62,8 @@ def get_generated_password():
 
             if user_input in ["y", "yes"]:
                 try:
-                    length_of_password = input("Enter password length [Default = 16]: ")
-                    password = generate_password(length=int(length_of_password))
+                    password_length = input("Enter password length [Default = 16]: ")
+                    password = generate_password(length=int(password_length))
                     return password
                 except ValueError:
                     password = generate_password()
@@ -82,10 +82,10 @@ def get_generated_password():
 def store_generated_password(username, password):
     """
     Saves a username-password pair to a JSON file.
-    
+
     Creates the Passwords directory if it doesn't exist, then writes the
     username and password as a JSON object.
-    
+
     Args:
         username (str): The username associated with the password.
         password (str): The password to store.

@@ -15,7 +15,7 @@ def init():
     verification_state = False
 
     while not verification_state:
-        verification_state = authentification.authentificate_user()
+        verification_state = authentification.authenticate_user()
 
     password = password_utils.get_generated_password()
     username = password_utils.get_username()
