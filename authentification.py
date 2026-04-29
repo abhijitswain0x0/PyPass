@@ -6,7 +6,7 @@ def authentificate_user():
     user_exists = if_user_exists()
 
     if user_exists:
-        path = Path("passwords/master_password.json")
+        path = Path("Passwords/master_password.json")
         data = json.loads(path.read_text())
 
         master_password = data["sudo"]
@@ -39,7 +39,7 @@ def authentificate_user():
 
 
 def if_user_exists():
-    master_password = Path("passwords/master_password.json")
+    master_password = Path("Passwords/master_password.json")
 
     if master_password.is_file():
         return True
