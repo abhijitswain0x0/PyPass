@@ -1,7 +1,14 @@
 import random  # imports the random library
+from pathlib import Path 
+import json
+
 
 import character_map  # imports charecter_mpa.py to get all charcters to use in a password
 
+def get_username():
+    username = input("Enter a username to pair with password: ")
+
+    return username
 
 def generate_password(
     length=16,
@@ -41,14 +48,13 @@ def get_generated_password():
                         "Enter password length [Desfault = 16]: "
                     )
 
-                    password = generate_password(length=int(lenght_of_password))
+                    password = generate_password(length=int(lenght_of_password)) 
 
-                    print(f"Generated Password: {password}")
-
+                    return password
                 except ValueError:
                     password = generate_password()
 
-                    print(f"Generated Password: {password}")
+                    return password
 
             elif user_input in ["n", "no"]:
                 print("Exiting...")
@@ -59,3 +65,18 @@ def get_generated_password():
         except KeyboardInterrupt:
             print("\nExiting...")
             exit()
+
+
+def store_generated_password(username, password):
+   
+    passwords_file_path = Path("Passwords/passwords.json")
+    
+    password_json = {username: password}
+
+    passwords_file_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    passwords_file_path.write_text(
+            json.dumps(
+                password_json, indent=4
+                )
+            )

@@ -14,8 +14,14 @@ def init():  # function to initialize/starts the app
             authentification.authentificate_user()
         )  # calls the authentification.auth() function and stores its return value in the verfication_state variable
 
-    password_utils.get_generated_password()  # calls the get_generated_password function funtion from password_utils
+    # password_utils.get_generated_password()  # calls the get_generated_password function funtion from password_utils
+    password = password_utils.get_generated_password()
+    username = password_utils.get_username()
 
+    print(f"{username}: {password}")
+
+
+    password_utils.store_generated_password(username, password)
 
 if __name__ == "__main__":  # calls the init function to start the app
     init()
