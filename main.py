@@ -1,5 +1,7 @@
+import sys
 import pypass.auth as auth
 import pypass.cli as cli
+
 
 def main():
     print("PyPass")
@@ -12,4 +14,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (KeyboardInterrupt, EOFError):
+        print("\nExiting...")
+        sys.exit(0)

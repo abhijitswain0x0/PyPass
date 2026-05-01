@@ -14,17 +14,13 @@ def check_user_exists():
 def authenticate_user():
     stored_hash = storage.load_master_password()
     if stored_hash is not None:
-        try:
-            password = input("Enter Master Password: ")
-            if storage.verify_password(password, stored_hash):
-                print("Password verified!")
-                return True
-            else:
-                print("Wrong Password!")
-                return False
-        except KeyboardInterrupt:
-            print("\nExiting...")
-            exit()
+        password = input("Enter Master Password: ")
+        if storage.verify_password(password, stored_hash):
+            print("Password verified!")
+            return True
+        else:
+            print("Wrong Password!")
+            return False
     else:
         create_user()
 
