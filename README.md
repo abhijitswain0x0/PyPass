@@ -1,28 +1,38 @@
 # PyPass
 
-A Python CLI application for generating and managing secure passwords with master password authentication.
+A Python CLI password manager with Argon2 hashing.
 
 ## Features
 
 - **Custom-length password generation**: Generate passwords from 1 to any length (default: 16 characters)
 - **Mixed character sets**: Passwords include uppercase, lowercase, numbers, and symbols
-- **Master password protection**: Access is protected by a master/sudo password
-- **Persistent storage**: Generated passwords are saved locally as JSON
+- **Master password protection**: Access is protected by a master password (hashed with Argon2)
+- **Secure storage**: All passwords are hashed with Argon2 before storage
 
 ## Requirements
 
 - Python 3.11+
+- UV package manager
+- Argon2
 
 ## Installation
 
 ```shell
 git clone https://github.com/abhijitswain0x0/PyPass.git
 cd PyPass
+uv sync
 ```
 
 ## Usage
 
 ```shell
+python main.py
+```
+
+Or with a virtual environment:
+
+```shell
+source .venv/Scripts/activate
 python main.py
 ```
 
@@ -33,22 +43,36 @@ On first run, you'll be prompted to create a master password. Subsequent runs re
 ```
 PyPass/
 ├── main.py                # Application entry point
-├── authentification.py    # Master password authentication
-├── password_utils.py      # Password generation and storage
-├── character_map.py      # Character sets for password generation
-├── README.md             # Project documentation
-└── LICENSE               # MIT License
+├── pyproject.toml       # UV package configuration
+├── pypass/              # Package
+│   ├── __init__.py      # Constants
+│   ├── auth.py          # Master password authentication
+│   ├── storage.py       # File I/O + Argon2 hashing
+│   ├── generator.py     # Password generation
+│   ├── cli.py          # User prompts
+│   └── characters.py   # Character sets
+├── Passwords/          # Data directory (gitignored)
+├── .venv/              # Virtual environment (gitignored)
+├── README.md           # Project documentation
+└── LICENSE             # MIT License
 ```
 
 ## How It Works
 
-1. **Authentication**: On startup, the app checks for a master password file. If none exists, it prompts you to create one. Otherwise, it verifies your input.
+1. **Authentication**: On startup, the app checks for a master password file. If none exists, it prompts you to create one. Otherwise, it verifies your input against an Argon2 hash.
 2. **Password Generation**: After authentication, you can generate a password of any length (default 16). Characters are randomly selected from:
    - Uppercase letters (A-Z)
    - Lowercase letters (a-z)
    - Numbers (0-9)
    - Symbols (!, @, #, $, %, ^, &, *, (, ), -, _, =, +)
-3. **Storage**: Username-password pairs are stored in `Passwords/passwords.json`.
+3. **Storage**: Username-password pairs are hashed with Argon2 and stored in `Passwords/passwords.json`.
+
+## Security
+
+All passwords (master and stored) are hashed using Argon2:
+- Time cost: 3
+- Memory cost: 64 MB
+- Parallelism: 4
 
 ## License
 
