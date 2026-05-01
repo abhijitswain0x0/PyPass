@@ -1,0 +1,2 @@
+def encode(key):
+  pass
