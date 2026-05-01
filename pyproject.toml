@@ -1,0 +1,10 @@
+[project]
+name = "pypass"
+version = "0.1.0"
+description = "A Python CLI password manager"
+requires-python = ">=3.11"
+dependencies = ["argon2-cffi"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
