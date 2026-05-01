@@ -1,3 +1,9 @@
+"""
+Authentication module for PyPass.
+
+Handles master password verification using Argon2 hashes.
+"""
+
 import pypass.storage as storage
 
 
@@ -6,11 +12,11 @@ def check_user_exists():
 
 
 def authenticate_user():
-    master_password = storage.load_master_password()
-    if master_password is not None:
+    stored_hash = storage.load_master_password()
+    if stored_hash is not None:
         try:
-            provided = input("Enter Master Password: ")
-            if provided == master_password:
+            password = input("Enter Master Password: ")
+            if storage.verify_password(password, stored_hash):
                 print("Password verified!")
                 return True
             else:
