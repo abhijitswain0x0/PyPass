@@ -21,3 +21,9 @@ python main.py
 All passwords (master + stored) are hashed with Argon2 before storage.
 ## Reset Master Password
 Delete `Passwords/master_password.json` and run again to create a new one.
+## Build
+```shell
+uv pip install pyinstaller
+.venv\Scripts\python -m PyInstaller --onefile --console --name PyPass main.py
+```
+Output: `dist/PyPass.exe`

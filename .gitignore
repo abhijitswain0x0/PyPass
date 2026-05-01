@@ -1,3 +1,6 @@
 __pycache__/
 Passwords/
 .venv/
+dist/
+build/
+*.spec
