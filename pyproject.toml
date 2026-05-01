@@ -1,12 +1,23 @@
-[project.optional-dependencies]
-dev = ["pyinstaller"]
-
 [project]
 name = "pypass"
-version = "0.1.0"
-description = "A Python CLI password manager"
+version = "1.0.0"
+description = "A Python CLI password manager with Argon2 hashing"
 requires-python = ">=3.11"
 dependencies = ["argon2-cffi"]
+authors = [{name = "Abhijit Swain", email = "abhijitswain0x0@gmail.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+
+[project.optional-dependencies]
+dev = ["pyinstaller"]
 
 [build-system]
 requires = ["hatchling"]

@@ -1,4 +1,4 @@
-# PyPass
+# PyPass v1.0.0
 
 A Python CLI password manager with Argon2 hashing.
 
@@ -12,15 +12,12 @@ A Python CLI password manager with Argon2 hashing.
 ## Requirements
 
 - Python 3.11+
-- UV package manager
-- Argon2
 
 ## Installation
 
 ```shell
 git clone https://github.com/abhijitswain0x0/PyPass.git
 cd PyPass
-uv sync
 ```
 
 ## Usage
@@ -54,6 +51,8 @@ PyPass/
 ├── Passwords/          # Data directory (gitignored)
 ├── .venv/              # Virtual environment (gitignored)
 ├── README.md           # Project documentation
+├── CONTRIBUTING.md    # Contribution guide
+├── AGENTS.md           # Agent instructions
 └── LICENSE             # MIT License
 ```
 
@@ -73,6 +72,10 @@ All passwords (master and stored) are hashed using Argon2:
 - Time cost: 3
 - Memory cost: 64 MB
 - Parallelism: 4
+
+## Contributing
+
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 
