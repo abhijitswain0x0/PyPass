@@ -1,4 +1,4 @@
-# PyPass v1.0.0
+# PyPass
 
 A Python CLI password manager with Argon2 hashing.
 
@@ -9,51 +9,30 @@ A Python CLI password manager with Argon2 hashing.
 - **Master password protection**: Access is protected by a master password (hashed with Argon2)
 - **Secure storage**: All passwords are hashed with Argon2 before storage
 
-## Requirements
 
-- Python 3.11+
+## Installation Video:
 
-## Installation
-
-```shell
-git clone https://github.com/abhijitswain0x0/PyPass.git
-cd PyPass
-```
-
-## Usage
-
-```shell
-python main.py
-```
-
-Or with a virtual environment:
-
-```shell
-source .venv/Scripts/activate
-python main.py
-```
-
-On first run, you'll be prompted to create a master password. Subsequent runs require the master password to proceed.
+[Watch](Pypass-Demo_v1.mp4)
 
 ## Project Structure
 
 ```
 PyPass/
-├── main.py                # Application entry point
+├── main.py              # Application entry point
 ├── pyproject.toml       # UV package configuration
 ├── pypass/              # Package
 │   ├── __init__.py      # Constants
 │   ├── auth.py          # Master password authentication
 │   ├── storage.py       # File I/O + Argon2 hashing
 │   ├── generator.py     # Password generation
-│   ├── cli.py          # User prompts
-│   └── characters.py   # Character sets
-├── Passwords/          # Data directory (gitignored)
-├── .venv/              # Virtual environment (gitignored)
-├── README.md           # Project documentation
-├── CONTRIBUTING.md    # Contribution guide
-├── AGENTS.md           # Agent instructions
-└── LICENSE             # MIT License
+│   ├── cli.py           # User prompts
+│   └── characters.py    # Character sets
+├── Passwords/           # Data directory (gitignored)
+├── .venv/               # Virtual environment (gitignored)
+├── README.md            # Project documentation
+├── CONTRIBUTING.md      # Contribution guide
+├── AGENTS.md            # Agent instructions
+└── LICENSE              # MIT License
 ```
 
 ## How It Works
