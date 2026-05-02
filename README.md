@@ -12,7 +12,7 @@ A Python CLI password manager with Argon2 hashing.
 
 ## Installation Video:
 
-https://github.com/abhijitswain0x0/PyPass/blob/main/Pypass-Demo_v1.mp4
+<video src="https://github.com/abhijitswain0x0/PyPass/blob/main/Pypass-Demo_v1.mp4" controls width="100%"></video>
 
 ## Project Structure
 
