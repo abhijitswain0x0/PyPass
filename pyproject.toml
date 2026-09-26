@@ -1,6 +1,6 @@
 [project]
 name = "pypass"
-version = "1.0.0"
+version = "1.1.0"
 description = "A Python CLI password manager with Argon2 hashing"
 requires-python = ">=3.11"
 dependencies = ["argon2-cffi", "cryptography>=42"]
@@ -16,8 +16,10 @@ classifiers = [
     "Programming Language :: Python :: 3.14",
 ]
 
+
 [project.optional-dependencies]
 dev = ["pyinstaller", "pytest"]
+
 
 [build-system]
 requires = ["hatchling"]
