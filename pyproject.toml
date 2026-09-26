@@ -3,7 +3,7 @@ name = "pypass"
 version = "1.0.0"
 description = "A Python CLI password manager with Argon2 hashing"
 requires-python = ">=3.11"
-dependencies = ["argon2-cffi"]
+dependencies = ["argon2-cffi", "cryptography>=42"]
 authors = [{name = "Abhijit Swain", email = "abhijitswain0x0@gmail.com"}]
 readme = "README.md"
 license = {text = "MIT"}
