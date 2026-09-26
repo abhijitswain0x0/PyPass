@@ -25,7 +25,7 @@ jobs:
           - os: macos-latest
             target: macos
             extension: ''
-          - os: ubuntu-latest
+          - os: ubuntu-22.04
             target: linux
             extension: ''
     runs-on: ${{ matrix.os }}
