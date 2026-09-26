@@ -1,6 +1,7 @@
 import sys
-import pypass.storage as storage
+
 import pypass.generator as generator
+import pypass.storage as storage
 
 
 def prompt_username():
@@ -23,5 +24,9 @@ def prompt_generate_password():
             print("Invalid input. Please enter Y or N.")
 
 
-def store_password(username, password):
-    storage.store_password(username, password)
+def store_password(username, password, master_password):
+    storage.store_password(username, password, master_password)
+
+
+def retrieve_password(username, master_password):
+    return storage.get_password(username, master_password)
