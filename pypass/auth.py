@@ -4,6 +4,8 @@ Authentication module for PyPass.
 Handles master password verification using Argon2 hashes.
 """
 
+from getpass import getpass
+
 import pypass.storage as storage
 
 
@@ -14,7 +16,7 @@ def check_user_exists():
 def authenticate_user():
     stored_hash = storage.load_master_password()
     if stored_hash is not None:
-        password = input("Enter Master Password: ")
+        password = getpass("Enter Master Password: ")
         if storage.verify_password(password, stored_hash):
             print("Password verified!")
             return True
@@ -27,5 +29,5 @@ def authenticate_user():
 
 def create_user():
     print("No user has been identified!\nCreating new user...")
-    master_password = input("Set a master password: ")
+    master_password = getpass("Set a master password: ")
     storage.save_master_password(master_password)
