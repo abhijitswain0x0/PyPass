@@ -25,6 +25,9 @@ jobs:
           - os: macos-latest
             target: macos
             extension: ''
+          - os: ubuntu-latest
+            target: linux
+            extension: ''
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v6
@@ -42,4 +45,19 @@ jobs:
         with:
           tag_name: ${{ github.event.release.tag_name || inputs.tag_name }}
           files: dist/PyPass-${{ matrix.target }}${{ matrix.extension }}
+          fail_on_unmatched_files: true
+
+  source-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.tag_name }}
+      - name: Create source zip
+        run: git archive --format=zip --prefix=PyPass-1.1.0/ -o PyPass-source.zip HEAD
+      - name: Upload source zip
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ github.event.release.tag_name || inputs.tag_name }}
+          files: PyPass-source.zip
           fail_on_unmatched_files: true
